@@ -284,33 +284,38 @@ Create the directory for `projectlamp` using 'mkdir' command
  Next step is to go to your browser and try to open your website URL using your public IP address. Use http://<Public-IP-Address>:80 and replace the <Public-IP-Address> with your own IP address. 
  You should see something similar to this on your browser.
    
- ![step53](https://user-images.githubusercontent.com/91766546/155556905-ab536c9c-e7c7-4db0-89f2-c93a7d0c44ba.png)
+![step53](https://user-images.githubusercontent.com/91766546/155560956-db1d4b47-6552-4ae3-ab3d-30fecb1f62de.png)
 
  You can leave this file in place as a temporary landing page for your application until you set up an index.php file to replace it. Once you do that, remember to remove or rename the index.html file from your document root, as it would take precedence over an index.php file by default.
    
    ## Enable PHP on the website
    We are at the final stages of our project. In order to enable PHP on the website the the default DirectoryIndex settings on Apache will have to change for the index.php file to take precedence over the index.html file. Let's change that now.
+   
  Step 1:
  You’ll need to edit the '/etc/apache2/mods-enabled/dir.conf' file and change the order in which the index.php file is listed within the DirectoryIndex directive.
  
    ![step55](https://user-images.githubusercontent.com/91766546/155558696-f332dd79-5c61-4fe9-9e0a-5a5853ca7838.png)
-   You will need to change the order of the files listed from this:
+   
+ You will need to change the order of the files listed from this:
+   
+   
    ![step56](https://user-images.githubusercontent.com/91766546/155558724-afe22a14-429d-4b31-a97c-360f1f8ebe2b.png)
    
-   To this one. 
+ To this one. 
+   
   ![step57](https://user-images.githubusercontent.com/91766546/155558749-f6496e95-edba-4d99-a606-27794d5adf7c.png)
    
-   Step 2:
-   After saving and closing the file, you will need to reload Apache so the changes take effect.
+ Step 2:
+ After saving and closing the file, you will need to reload Apache so the changes take effect.
    
    ![step58](https://user-images.githubusercontent.com/91766546/155559166-23096632-faf5-43fe-b8b5-c4da36985ae6.png)
 
-   Step 3:
-   Finally we will create a PHP file to test if PHP is correctly installed in our server. Let's create a new file named index.php inside our custom web root folder.
+ Step 3:
+ Finally we will create a PHP file to test if PHP is correctly installed in our server. Let's create a new file named index.php inside our custom web root folder.
      
   ![step59](https://user-images.githubusercontent.com/91766546/155559633-2b5bd2be-fb91-4d3d-81aa-bbb058cf37d6.png)
    
-   This will open a blank file. Add the following text, which is valid PHP code, inside the file.
+  This will open a blank file. Add the following text, which is valid PHP code, inside the file.
    
 ![step60](https://user-images.githubusercontent.com/91766546/155559928-5321b9d0-0131-4f8d-9023-1440ec365c65.png)
    
