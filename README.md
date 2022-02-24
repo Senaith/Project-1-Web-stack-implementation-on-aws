@@ -23,18 +23,22 @@ In order to complete this project, we need to begin by setting up an AWS account
 
 Step 1:  
 Create free AWS account. Instructions for this can be found [here](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/). Once you have created your AWS account, navigate to the login page and type in your credentials.
+
 ![step1](https://user-images.githubusercontent.com/91766546/155464784-d05cdd49-bd8e-44cd-a7f2-375be234f08c.png)
 
 Step 2: 
 After signing-in to your AWS account, navigate to the top-right corner of your screen and select your preferred region. This should be the closest region to your physical location.
+
 ![step2](https://user-images.githubusercontent.com/91766546/155465696-7db8eb54-0b61-4650-ba9b-1d72fbe6a2a3.png)
 
 Step 3:
 Proceed to the search bar and type in EC2. Select the EC2 service that appears on top.
+
 ![step3](https://user-images.githubusercontent.com/91766546/155465963-bc4692d7-dd76-4671-8bf5-539ec429df81.png)
 
 Step 4:
 Click on the orange 'Launch Instances' button that appeears on the top right side of your screen.
+
 ![step4](https://user-images.githubusercontent.com/91766546/155466281-6f017c25-a13b-4ed7-ab75-359fe66e4a28.png)
 
 Step 5:
@@ -46,6 +50,7 @@ Step 6:
 Select t2.micro as the instance type
 
 ![step6](https://user-images.githubusercontent.com/91766546/155466629-4cb51271-8c9f-4d8f-bab1-5b1122854e55.png)
+
 click REVIEW AND LAUNCH.
 
 Step 7:
