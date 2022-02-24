@@ -39,27 +39,32 @@ Click on the orange 'Launch Instances' button that appeears on the top right sid
 
 Step 5:
 Choose the Ubuntu Server 20.04 LTS (HVM) as the Amazon Machine Image (AMI) from the list of AMIs provided. 
+
 ![step5](https://user-images.githubusercontent.com/91766546/155466520-587e7761-c42e-4e69-944e-17889cb7e67e.png)
 
 Step 6:
 Select t2.micro as the instance type
+
 ![step6](https://user-images.githubusercontent.com/91766546/155466629-4cb51271-8c9f-4d8f-bab1-5b1122854e55.png)
 click REVIEW AND LAUNCH.
 
 Step 7:
 and then on the next page choose LAUNCH.
+
 ![step7](https://user-images.githubusercontent.com/91766546/155466863-53cbbfff-96ac-4ce4-beb3-d252ebefeb4b.png)
 
 Step 8:
 There will be a window asking you to create a key pair. Select the 'Create a new key pair' option from the drop down menu and then select "Download". Make sure you know the location the file was downloaded to and don't lose the .pem file. You will need this file in order to connect into your server from your local PC. After you downloaded the key pair, check the box for the acknowledgement, and then click on "Launch Instances".
+
 ![step8](https://user-images.githubusercontent.com/91766546/155467313-064c49ff-925a-4981-8f65-2fc18bae114a.png)
 
 Step 9:
 Woohoo!!! You've successfully launched an EC2 instance! 
+
 ![step9](https://user-images.githubusercontent.com/91766546/155467506-76e1fe69-e888-4394-bdab-b12cb3fd675a.png)
 
-Step 10:
 Click on 'View Instances' to see your EC2 instance.
+
 ![step10](https://user-images.githubusercontent.com/91766546/155467923-c75aee26-436b-4b91-be39-6e41e0ae17f7.png)
 
 ### Let's connect our AWS EC2 server to your local PC via SSH
@@ -67,22 +72,28 @@ Click on 'View Instances' to see your EC2 instance.
 Step 1:
 On your local Linux machine, change your working directory to the location where your downloaded key pair .pem file exists. 
 And use the 'ls' command to check if the file exists in that folder.
+
 ![step11](https://user-images.githubusercontent.com/91766546/155468644-c2e6e376-61fa-4404-b22b-36f1e420a321.png)
 
 Step 2:
 Use the following commang to change the premissions for the private key file (.pem), otherwise you can get an error 'Bad permissions'.
+
 ![step12](https://user-images.githubusercontent.com/91766546/155468937-57c37275-ca8e-41ef-a7d2-4d7976d24938.png)
 
 Step 3:
-Get your public IP address from your instance
+Get your public IP address from your instance.
+
 ![step13](https://user-images.githubusercontent.com/91766546/155469264-77680e47-94ff-4aa5-9ea2-4aca85ffee4f.png)
 
 Step 4:
 Connect to your EC2 instance by running the following command.
+
 ![step14](https://user-images.githubusercontent.com/91766546/155469328-97582ec5-b365-4e73-afd5-cd2cad9640ae.png)
+
 ![step15](https://user-images.githubusercontent.com/91766546/155469524-b58b041b-3366-4eaf-9adf-cb99633c29b5.png)
 
 When connected, your ip-address will be shown on your terminal.
+
 ![step16](https://user-images.githubusercontent.com/91766546/155469556-bdb0ba33-ef4c-4dc7-915e-2295bdae648a.png)
 
 ## Installing Apache 
@@ -95,35 +106,44 @@ Let's proceed with our installation
 
 Step 1:
 On your terminal, update a list of packages in package manager using the following command.
+
 ![step17](https://user-images.githubusercontent.com/91766546/155471051-08cc3dce-b4a3-493f-9c1a-b79683d552ec.png)
 
 Step 2:
 Run apache2 package installation command. Click Y for Yes when the prompt appears.
+
 ![step18](https://user-images.githubusercontent.com/91766546/155471117-fa89e28a-47f2-4f1d-8724-ec8a77199f45.png)
+
 ![step19](https://user-images.githubusercontent.com/91766546/155471319-4f1fe8c6-cae6-49e3-8d42-4fc575d48078.png)
 
 Step 3:
 To verify that apache2 is running as a Service in our Operating System, use following command.
+
 ![step20](https://user-images.githubusercontent.com/91766546/155471425-c3dfbaff-f9ac-4ce4-82fe-9132fc37b2ba.png)
+
 If it is green and running, then you did everything correctly. Congratulations!!! You have just launched your first Web Server in the Clouds!
 
 Step 4:
 Before we can receive any traffic by our Web Server, we need to open TCP port 80 which is the default port that web browsers use to access web pages on the Internet. We have TCP port 22 open by default on our EC2 machine to access it via SSH, so we need to add a rule to EC2 configuration to open inbound connection through port 80:
 
 Open your AWS Management Console and Click on your EC2 instance. Click on the 'Security' tab.
+
 ![step21](https://user-images.githubusercontent.com/91766546/155471913-65b8e592-f91c-4085-8d09-f410b8694a2b.png)
 
 Step 5: 
 Click on the link under the 'Securty Groups'.
+
 ![step22](https://user-images.githubusercontent.com/91766546/155472624-d79fdc64-6ec9-467d-bf57-33ebc2687c23.png)
 
 
 Step 6:
 Next, click on 'Edit Inbound Rules' box found on the bottom right side of your screen.
+
 ![step23](https://user-images.githubusercontent.com/91766546/155531100-3456c502-5c34-4f6f-b132-3a1751834863.png)
 
 Step 7:
 Click on 'Add Rule' and add the HTTP, TCP port 80 and allow source from anywhere by using 0.0.0.0
+
 ![step24](https://user-images.githubusercontent.com/91766546/155531343-2e16c23f-6389-45e8-b2a1-e75435314d51.png)
 
 ![step25](https://user-images.githubusercontent.com/91766546/155531566-2cfe5502-c295-488e-a5d5-ea74a8912e49.png)
@@ -189,7 +209,7 @@ By default, a MySQL installation has an anonymous user, allowing anyone to log i
   
 PHP is a script on the server-side used for the creation of Static or Dynamic Web sites or Web applications. PHP is a pre-processor for hypertext, which used to stand for home pages. The software used to build web applications is an open-source, server-side scripting language. We say a program designed for automated work by writing a script-based language (code lines). It is suitable for the output and construction of dynamic web pages for web applications, e-commerce applications, and database applications. PHP can be inserted into HTML.
    
-   Let's begin our installation.
+Let's begin our installation.
    
 Step 1:
 To start with, run these three commans at once on your terminal.
@@ -214,69 +234,69 @@ We will configure our first Virtual Host in the next step.
 
  In this project, we will set up a domain called 'projectlamp', but you can replace this with any domain of your choice.
  
- Step 1:
+Step 1:
 Apache on Ubuntu 20.04 has one server block enabled by default that is configured to serve documents from the '/var/www/html' directory. We will leave this configuration as is and will add our own directory next next to the default one.
 
 Create the directory for `projectlamp` using 'mkdir' command
    
 ![step39](https://user-images.githubusercontent.com/91766546/155549854-fa0435b7-f5a4-4e60-a922-f9cd1fd845ff.png)
 
- Step 2:
- Next, assign ownership of the directory.
+Step 2:
+Next, assign ownership of the directory.
    
- ![step40](https://user-images.githubusercontent.com/91766546/155550126-115dce2f-2226-4816-bd6d-6861d7a90dd6.png)
+![step40](https://user-images.githubusercontent.com/91766546/155550126-115dce2f-2226-4816-bd6d-6861d7a90dd6.png)
    
- Step 3:
- Then, create and open a new configuration file in Apache’s 'sites-available' directory using your preferred command-line editor. 
+Step 3:
+Then, create and open a new configuration file in Apache’s 'sites-available' directory using your preferred command-line editor. 
    
- ![step41](https://user-images.githubusercontent.com/91766546/155550489-08ce1bce-e6a5-413f-84ec-82336e4f8873.png)
+![step41](https://user-images.githubusercontent.com/91766546/155550489-08ce1bce-e6a5-413f-84ec-82336e4f8873.png)
    
- This will create a new blank file. Paste in the following configuration by hitting on 'i' on the keyboard to enter the insert mode, and paste the text.
+This will create a new blank file. Paste in the following configuration by hitting on 'i' on the keyboard to enter the insert mode, and paste the text.
   
- ![step42](https://user-images.githubusercontent.com/91766546/155550971-9b6b52c9-0f49-4e01-868c-4749be5f5d7c.png)
+![step42](https://user-images.githubusercontent.com/91766546/155550971-9b6b52c9-0f49-4e01-868c-4749be5f5d7c.png)
    
-  To exit the text editor press Esc key on your keyboard and type :wq (w for write and q for quit) and then hit Enter key.
+To exit the text editor press Esc key on your keyboard and type :wq (w for write and q for quit) and then hit Enter key.
    
-  Step 4:
-  Use the 'ls' command to see the contents of the sites-available directory.
+Step 4:
+Use the 'ls' command to see the contents of the sites-available directory.
   
-  ![step43](https://user-images.githubusercontent.com/91766546/155551580-f407a9e0-771b-4c43-91ea-6942af1fff17.png)
+![step43](https://user-images.githubusercontent.com/91766546/155551580-f407a9e0-771b-4c43-91ea-6942af1fff17.png)
    
-  You will see something like this on your terminal screen.
+You will see something like this on your terminal screen.
    
-  ![step44](https://user-images.githubusercontent.com/91766546/155551713-82ecb0c8-9eb9-4e08-b503-81f054767b0d.png)
+![step44](https://user-images.githubusercontent.com/91766546/155551713-82ecb0c8-9eb9-4e08-b503-81f054767b0d.png)
    
-  Step 5:
-  You can now use 'a2ensite' command to enable the new virtual host.
+Step 5:
+You can now use 'a2ensite' command to enable the new virtual host.
    
-  ![step45](https://user-images.githubusercontent.com/91766546/155552049-78ebb962-3d6e-402c-ad8a-56a8e22e30be.png)
+![step45](https://user-images.githubusercontent.com/91766546/155552049-78ebb962-3d6e-402c-ad8a-56a8e22e30be.png)
    
-  ![step46](https://user-images.githubusercontent.com/91766546/155552456-bc2172b5-2ebb-4aca-b6a7-c90e13861ea6.png)
+![step46](https://user-images.githubusercontent.com/91766546/155552456-bc2172b5-2ebb-4aca-b6a7-c90e13861ea6.png)
 
-  You might want to disable the default website that comes installed with Apache. This is required if you’re not using a custom domain name, because in this case Apache’s default configuration would overwrite your virtual host. To disable Apache’s default website use a2dissite command.
+You might want to disable the default website that comes installed with Apache. This is required if you’re not using a custom domain name, because in this case Apache’s default configuration would overwrite your virtual host. To disable Apache’s default website use a2dissite command.
      
 ![step47](https://user-images.githubusercontent.com/91766546/155552407-00016452-a794-4834-8e41-891ddddf3983.png)
    
 ![step48](https://user-images.githubusercontent.com/91766546/155554242-3fae5a9a-52d1-4e41-8836-915a7ac86022.png)
 
- Step 6:
- To make sure your configuration file doesn’t contain syntax errors, run the following command.
+Step 6:
+To make sure your configuration file doesn’t contain syntax errors, run the following command.
  
- ![step49](https://user-images.githubusercontent.com/91766546/155555156-c0b51016-b126-426c-8f5d-472358ef3f4e.png)
+![step49](https://user-images.githubusercontent.com/91766546/155555156-c0b51016-b126-426c-8f5d-472358ef3f4e.png)
   
-  You should see something like this on your screen.
+You should see something like this on your screen.
    
 ![step50](https://user-images.githubusercontent.com/91766546/155555413-8dd8d68f-3ec1-4227-bcc3-312a10b6a268.png)
    
- Step 7:
- Finally, reload Apache so these changes can take effect.
+Step 7:
+Finally, reload Apache so these changes can take effect.
  
 ![step51](https://user-images.githubusercontent.com/91766546/155555673-d318b83c-814b-4af7-bc0b-3eda8badeac3.png)
    
   Congratulations! Your new website is now active!!!
   
- Step 8:
- Create an index.html file in that location so that we can test that the virtual host works as expected.
+Step 8:
+Create an index.html file in that location so that we can test that the virtual host works as expected.
  
  ![step52](https://user-images.githubusercontent.com/91766546/155556522-fd921fee-dfd8-437a-a4c9-48c76bac5cea.png)
  
@@ -286,44 +306,44 @@ Create the directory for `projectlamp` using 'mkdir' command
    
 ![step53](https://user-images.githubusercontent.com/91766546/155560956-db1d4b47-6552-4ae3-ab3d-30fecb1f62de.png)
 
- You can leave this file in place as a temporary landing page for your application until you set up an index.php file to replace it. Once you do that, remember to remove or rename the index.html file from your document root, as it would take precedence over an index.php file by default.
+You can leave this file in place as a temporary landing page for your application until you set up an index.php file to replace it. Once you do that, remember to remove or rename the index.html file from your document root, as it would take precedence over an index.php file by default.
    
    ## Enable PHP on the website
-   We are at the final stages of our project. In order to enable PHP on the website the the default DirectoryIndex settings on Apache will have to change for the index.php file to take precedence over the index.html file. Let's change that now.
+We are at the final stages of our project. In order to enable PHP on the website the the default DirectoryIndex settings on Apache will have to change for the index.php file to take precedence over the index.html file. Let's change that now.
    
- Step 1:
- You’ll need to edit the '/etc/apache2/mods-enabled/dir.conf' file and change the order in which the index.php file is listed within the DirectoryIndex directive.
+Step 1:
+You’ll need to edit the '/etc/apache2/mods-enabled/dir.conf' file and change the order in which the index.php file is listed within the DirectoryIndex directive.
  
-   ![step55](https://user-images.githubusercontent.com/91766546/155558696-f332dd79-5c61-4fe9-9e0a-5a5853ca7838.png)
+![step55](https://user-images.githubusercontent.com/91766546/155558696-f332dd79-5c61-4fe9-9e0a-5a5853ca7838.png)
    
- You will need to change the order of the files listed from this:
+You will need to change the order of the files listed from this:
    
    
-   ![step56](https://user-images.githubusercontent.com/91766546/155558724-afe22a14-429d-4b31-a97c-360f1f8ebe2b.png)
+![step56](https://user-images.githubusercontent.com/91766546/155558724-afe22a14-429d-4b31-a97c-360f1f8ebe2b.png)
    
- To this one. 
+To this one. 
    
-  ![step57](https://user-images.githubusercontent.com/91766546/155558749-f6496e95-edba-4d99-a606-27794d5adf7c.png)
+![step57](https://user-images.githubusercontent.com/91766546/155558749-f6496e95-edba-4d99-a606-27794d5adf7c.png)
    
- Step 2:
- After saving and closing the file, you will need to reload Apache so the changes take effect.
+Step 2:
+After saving and closing the file, you will need to reload Apache so the changes take effect.
    
-   ![step58](https://user-images.githubusercontent.com/91766546/155559166-23096632-faf5-43fe-b8b5-c4da36985ae6.png)
+![step58](https://user-images.githubusercontent.com/91766546/155559166-23096632-faf5-43fe-b8b5-c4da36985ae6.png)
 
- Step 3:
- Finally we will create a PHP file to test if PHP is correctly installed in our server. Let's create a new file named index.php inside our custom web root folder.
+Step 3:
+Finally we will create a PHP file to test if PHP is correctly installed in our server. Let's create a new file named index.php inside our custom web root folder.
      
-  ![step59](https://user-images.githubusercontent.com/91766546/155559633-2b5bd2be-fb91-4d3d-81aa-bbb058cf37d6.png)
+![step59](https://user-images.githubusercontent.com/91766546/155559633-2b5bd2be-fb91-4d3d-81aa-bbb058cf37d6.png)
    
-  This will open a blank file. Add the following text, which is valid PHP code, inside the file.
+This will open a blank file. Add the following text, which is valid PHP code, inside the file.
    
 ![step60](https://user-images.githubusercontent.com/91766546/155559928-5321b9d0-0131-4f8d-9023-1440ec365c65.png)
    
-   After saving and closing the file now go to your browser and refresh the page to see a page similar to this one.
+After saving and closing the file now go to your browser and refresh the page to see a page similar to this one.
    
 ![step61](https://user-images.githubusercontent.com/91766546/155560159-75244c8a-7f15-4d23-933a-555842519312.png)
    
-   Step 4:
-   After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server.
+Step 4:
+After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server.
    
 ![step62](https://user-images.githubusercontent.com/91766546/155560237-23aea492-d0cb-4f09-8b5f-99e5f9c024fe.png)
