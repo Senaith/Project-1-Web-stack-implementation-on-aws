@@ -157,7 +157,7 @@ Click on 'Add Rule' and add the HTTP, TCP port 80 and allow source from anywhere
 
 Step 8:
 Our server is running and we can access it locally and from the Internet (Source 0.0.0.0/0 means 'from any IP address').
-First, let us try to check how we can access it locally in our Ubuntu shell, run 'curl http://localhost:80' commmand
+First, let us try to check how we can access it locally in our Ubuntu shell, run 'curl http://localhost:80' command
 
 ![step27](https://user-images.githubusercontent.com/91766546/155531982-61815c71-4fbd-44e6-9156-c886122cc154.png)
 
