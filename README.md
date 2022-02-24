@@ -352,3 +352,5 @@ Step 4:
 After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server.
    
 ![step62](https://user-images.githubusercontent.com/91766546/155560237-23aea492-d0cb-4f09-8b5f-99e5f9c024fe.png)
+
+This is the end of our project. We have successfully implemented our LAMP stack on an AWS EC2 server.
