@@ -113,21 +113,97 @@ Before we can receive any traffic by our Web Server, we need to open TCP port 80
 Open your AWS Management Console and Click on your EC2 instance. Click on the 'Security' tab.
 ![step21](https://user-images.githubusercontent.com/91766546/155471913-65b8e592-f91c-4085-8d09-f410b8694a2b.png)
 
+Step 5: 
 Click on the link under the 'Securty Groups'.
 ![step22](https://user-images.githubusercontent.com/91766546/155472624-d79fdc64-6ec9-467d-bf57-33ebc2687c23.png)
 
 
+Step 6:
+Next, click on 'Edit Inbound Rules' box found on the bottom right side of your screen.
+![step23](https://user-images.githubusercontent.com/91766546/155531100-3456c502-5c34-4f6f-b132-3a1751834863.png)
+
+Step 7:
+Click on 'Add Rule' and add the HTTP, TCP port 80 and allow source from anywhere by using 0.0.0.0
+![step24](https://user-images.githubusercontent.com/91766546/155531343-2e16c23f-6389-45e8-b2a1-e75435314d51.png)
+
+![step25](https://user-images.githubusercontent.com/91766546/155531566-2cfe5502-c295-488e-a5d5-ea74a8912e49.png)
+
+![step26](https://user-images.githubusercontent.com/91766546/155531678-456f3def-ed17-4b17-97ed-1aa3b64b649e.png)
+
+Step 8:
+Our server is running and we can access it locally and from the Internet (Source 0.0.0.0/0 means 'from any IP address').
+First, let us try to check how we can access it locally in our Ubuntu shell, run 'curl http://localhost:80' commmand
+
+![step27](https://user-images.githubusercontent.com/91766546/155531982-61815c71-4fbd-44e6-9156-c886122cc154.png)
+
+Step 9:
+Now it is time for us to test how our Apache HTTP server can respond to requests from the Internet. 
+Open a web browser of your choice and try to access following url 'http://<Public-IP-Address>:80'. Replace the '<Public-IP-Address>' with the public IP address of you server. You should be able to see this page displayed on your screen.
+   
+![step28](https://user-images.githubusercontent.com/91766546/155532443-b7e0b3d3-c16f-47e5-9fcc-d509f4a6ee2e.png)
+
+Your web server is now correctly installed and accessible through your firewall.
 
 
+## Installing MySql-Server
+   
+Now that we have our web server up and running, we need to install a [Database Management System (DBMS)](https://en.wikipedia.org/wiki/Database#Database_management_system) to be able to store and manage data for your site in a [relational database](https://en.wikipedia.org/wiki/Relational_database). [MySQL](https://www.mysql.com/) is a popular relational database management system used within PHP environments, so we will use it in our project.
+   
+Step 1:
+Use ‘apt’ to acquire and install this software.
 
+![step29](https://user-images.githubusercontent.com/91766546/155533662-cc88564f-2fca-4b00-b4bd-f52ffd8217f0.png)
+   
+When prompted, confirm installation by typing Y, and then ENTER.
+   
+![step30](https://user-images.githubusercontent.com/91766546/155534026-c558d6f7-5bd0-4817-b532-9e1ad3ae6fbc.png)
 
+Step 2:
+Next, run security script to remove insecure default settings and lock down access to your database system. Start the interactive script by running:
 
+![step31](https://user-images.githubusercontent.com/91766546/155534470-0318e3c8-b579-4afa-8cc0-2008570bbd8e.png)
+   
+This will ask if you want to configure the VALIDATE PASSWORD PLUGIN. Answer Y for yes, or any other key to continue without enabling. I recommend not enabling this plugin for now and proceed by pressing N or any other key on your keyboard to go to the next step.
 
+![step32](https://user-images.githubusercontent.com/91766546/155534959-7747fefe-c4e6-4711-b678-aa67f637f28a.png)
 
+Your server will next ask you to select and confirm a password for the MySQL root user (The database root user is an administrative user with full privileges over the database system.)
+   
+Step 3:
+By default, a MySQL installation has an anonymous user, allowing anyone to log into MySQL without having to have a user account created for them. You should remove this by typing 'Y' for each prompt that follows.
 
+![step33](https://user-images.githubusercontent.com/91766546/155536247-2464ac1f-69cc-4482-893f-80d2cdfbd60f.png)
+   
+ Step 4:
+ check whether you can log in to the MySQL console.
+ 
+![step34](https://user-images.githubusercontent.com/91766546/155536485-e640bfa6-dc20-4f08-8b15-9bfea8a0ded0.png)
+   
+ To exit MySQL console, run:
 
+![step35](https://user-images.githubusercontent.com/91766546/155536556-f3989116-f257-47a9-b7ba-5577a525ab6f.png)
 
+ Your MySQL server is now installed and secured. Next, we will install PHP, the final component in the LAMP stack.
+   
+ ## Installing PHP
+  
+PHP is a script on the server-side used for the creation of Static or Dynamic Web sites or Web applications. PHP is a pre-processor for hypertext, which used to stand for home pages. The software used to build web applications is an open-source, server-side scripting language. We say a program designed for automated work by writing a script-based language (code lines). It is suitable for the output and construction of dynamic web pages for web applications, e-commerce applications, and database applications. PHP can be inserted into HTML.
+   
+   Let's begin our installation.
+   
+Step 1:
+To start with, run these three commans at once on your terminal.
 
+![step36](https://user-images.githubusercontent.com/91766546/155537883-1fabfdb1-50d1-4ea6-9a5a-3d426acdb48f.png)
+   
+ Confirm Y for Yes when the prompt appears.
 
+![step37](https://user-images.githubusercontent.com/91766546/155538002-db53a390-c5b9-4513-9d85-b542012e7df2.png)
 
+Step 2:
+Next, run the following command to check for the version of PHP installed.
+   
+![step38](https://user-images.githubusercontent.com/91766546/155538410-75057999-c06e-4d9d-b62b-f2194c1360f4.png)
 
+### At this point, your LAMP stack is completely installed and fully operational.
+   
