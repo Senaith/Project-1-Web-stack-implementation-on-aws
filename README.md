@@ -207,3 +207,118 @@ Next, run the following command to check for the version of PHP installed.
 
 ### At this point, your LAMP stack is completely installed and fully operational.
    
+To test your setup with a PHP script, it’s best to set up a proper Apache Virtual Host to hold your website’s files and folders.
+We will configure our first Virtual Host in the next step.
+   
+## Creating a Virtual Host for your Website using Apache
+
+ In this project, we will set up a domain called 'projectlamp', but you can replace this with any domain of your choice.
+ 
+ Step 1:
+Apache on Ubuntu 20.04 has one server block enabled by default that is configured to serve documents from the '/var/www/html' directory. We will leave this configuration as is and will add our own directory next next to the default one.
+
+Create the directory for `projectlamp` using 'mkdir' command
+   
+![step39](https://user-images.githubusercontent.com/91766546/155549854-fa0435b7-f5a4-4e60-a922-f9cd1fd845ff.png)
+
+ Step 2:
+ Next, assign ownership of the directory.
+   
+ ![step40](https://user-images.githubusercontent.com/91766546/155550126-115dce2f-2226-4816-bd6d-6861d7a90dd6.png)
+   
+ Step 3:
+ Then, create and open a new configuration file in Apache’s 'sites-available' directory using your preferred command-line editor. 
+   
+ ![step41](https://user-images.githubusercontent.com/91766546/155550489-08ce1bce-e6a5-413f-84ec-82336e4f8873.png)
+   
+ This will create a new blank file. Paste in the following configuration by hitting on 'i' on the keyboard to enter the insert mode, and paste the text.
+  
+ ![step42](https://user-images.githubusercontent.com/91766546/155550971-9b6b52c9-0f49-4e01-868c-4749be5f5d7c.png)
+   
+  To exit the text editor press Esc key on your keyboard and type :wq (w for write and q for quit) and then hit Enter key.
+   
+  Step 4:
+  Use the 'ls' command to see the contents of the sites-available directory.
+  
+  ![step43](https://user-images.githubusercontent.com/91766546/155551580-f407a9e0-771b-4c43-91ea-6942af1fff17.png)
+   
+  You will see something like this on your terminal screen.
+   
+  ![step44](https://user-images.githubusercontent.com/91766546/155551713-82ecb0c8-9eb9-4e08-b503-81f054767b0d.png)
+   
+  Step 5:
+  You can now use 'a2ensite' command to enable the new virtual host.
+   
+  ![step45](https://user-images.githubusercontent.com/91766546/155552049-78ebb962-3d6e-402c-ad8a-56a8e22e30be.png)
+   
+  ![step46](https://user-images.githubusercontent.com/91766546/155552456-bc2172b5-2ebb-4aca-b6a7-c90e13861ea6.png)
+
+  You might want to disable the default website that comes installed with Apache. This is required if you’re not using a custom domain name, because in this case Apache’s default configuration would overwrite your virtual host. To disable Apache’s default website use a2dissite command.
+     
+![step47](https://user-images.githubusercontent.com/91766546/155552407-00016452-a794-4834-8e41-891ddddf3983.png)
+   
+![step48](https://user-images.githubusercontent.com/91766546/155554242-3fae5a9a-52d1-4e41-8836-915a7ac86022.png)
+
+ Step 6:
+ To make sure your configuration file doesn’t contain syntax errors, run the following command.
+ 
+ ![step49](https://user-images.githubusercontent.com/91766546/155555156-c0b51016-b126-426c-8f5d-472358ef3f4e.png)
+  
+  You should see something like this on your screen.
+   
+![step50](https://user-images.githubusercontent.com/91766546/155555413-8dd8d68f-3ec1-4227-bcc3-312a10b6a268.png)
+   
+ Step 7:
+ Finally, reload Apache so these changes can take effect.
+ 
+![step51](https://user-images.githubusercontent.com/91766546/155555673-d318b83c-814b-4af7-bc0b-3eda8badeac3.png)
+   
+  Congratulations! Your new website is now active!!!
+  
+ Step 8:
+ Create an index.html file in that location so that we can test that the virtual host works as expected.
+ 
+ ![step52](https://user-images.githubusercontent.com/91766546/155556522-fd921fee-dfd8-437a-a4c9-48c76bac5cea.png)
+ 
+ Step 9:
+ Next step is to go to your browser and try to open your website URL using your public IP address. Use http://<Public-IP-Address>:80 and replace the <Public-IP-Address> with your own IP address. 
+ You should see something similar to this on your browser.
+   
+ ![step53](https://user-images.githubusercontent.com/91766546/155556905-ab536c9c-e7c7-4db0-89f2-c93a7d0c44ba.png)
+
+ You can leave this file in place as a temporary landing page for your application until you set up an index.php file to replace it. Once you do that, remember to remove or rename the index.html file from your document root, as it would take precedence over an index.php file by default.
+   
+   ## Enable PHP on the website
+   We are at the final stages of our project. In order to enable PHP on the website the the default DirectoryIndex settings on Apache will have to change for the index.php file to take precedence over the index.html file. Let's change that now.
+ Step 1:
+ You’ll need to edit the '/etc/apache2/mods-enabled/dir.conf' file and change the order in which the index.php file is listed within the DirectoryIndex directive.
+ 
+   ![step55](https://user-images.githubusercontent.com/91766546/155558696-f332dd79-5c61-4fe9-9e0a-5a5853ca7838.png)
+   You will need to change the order of the files listed from this:
+   ![step56](https://user-images.githubusercontent.com/91766546/155558724-afe22a14-429d-4b31-a97c-360f1f8ebe2b.png)
+   
+   To this one. 
+  ![step57](https://user-images.githubusercontent.com/91766546/155558749-f6496e95-edba-4d99-a606-27794d5adf7c.png)
+   
+   Step 2:
+   After saving and closing the file, you will need to reload Apache so the changes take effect.
+   
+   ![step58](https://user-images.githubusercontent.com/91766546/155559166-23096632-faf5-43fe-b8b5-c4da36985ae6.png)
+
+   Step 3:
+   Finally we will create a PHP file to test if PHP is correctly installed in our server. Let's create a new file named index.php inside our custom web root folder.
+     
+  ![step59](https://user-images.githubusercontent.com/91766546/155559633-2b5bd2be-fb91-4d3d-81aa-bbb058cf37d6.png)
+   
+   This will open a blank file. Add the following text, which is valid PHP code, inside the file.
+   
+![step60](https://user-images.githubusercontent.com/91766546/155559928-5321b9d0-0131-4f8d-9023-1440ec365c65.png)
+   
+   After saving and closing the file now go to your browser and refresh the page to see a page similar to this one.
+   
+![step61](https://user-images.githubusercontent.com/91766546/155560159-75244c8a-7f15-4d23-933a-555842519312.png)
+   
+   Step 4:
+   After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server.
+   
+![step62](https://user-images.githubusercontent.com/91766546/155560237-23aea492-d0cb-4f09-8b5f-99e5f9c024fe.png)
