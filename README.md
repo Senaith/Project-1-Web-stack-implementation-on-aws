@@ -9,6 +9,7 @@ Solution stacks are sets of individual components that create a complete environ
 LAMP consists of four components necessary to establish a fully functional web development environment. The first letters of the components' names make up the LAMP acronym:
 
    •	Linux is a free and open-source operating system used to run the rest of the components. Linux is popular in part because it offers more flexibility and configuration options than some other operating systems.
+   
    •	Apache HTTP Server is a web server software used to serve static web pages.
 
    •	MySQL is a relational database management system used for creating and managing web databases, but also for data warehousing, application logging, e-commerce, etc.
