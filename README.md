@@ -38,7 +38,7 @@ Proceed to the search bar and type in EC2. Select the EC2 service that appears o
 ![step3](https://user-images.githubusercontent.com/91766546/155465963-bc4692d7-dd76-4671-8bf5-539ec429df81.png)
 
 Step 4:
-Click on the orange 'Launch Instances' button that appeears on the top right side of your screen.
+Click on the orange 'Launch Instances' button that appears on the top right side of your screen.
 
 ![step4](https://user-images.githubusercontent.com/91766546/155466281-6f017c25-a13b-4ed7-ab75-359fe66e4a28.png)
 
@@ -65,7 +65,7 @@ There will be a window asking you to create a key pair. Select the 'Create a new
 ![step8](https://user-images.githubusercontent.com/91766546/155467313-064c49ff-925a-4981-8f65-2fc18bae114a.png)
 
 Step 9:
-Woohoo!!! You've successfully launched an EC2 instance! 
+You've successfully launched an EC2 instance! 
 
 ![step9](https://user-images.githubusercontent.com/91766546/155467506-76e1fe69-e888-4394-bdab-b12cb3fd675a.png)
 
@@ -82,7 +82,7 @@ And use the 'ls' command to check if the file exists in that folder.
 ![step11](https://user-images.githubusercontent.com/91766546/155468644-c2e6e376-61fa-4404-b22b-36f1e420a321.png)
 
 Step 2:
-Use the following commang to change the premissions for the private key file (.pem), otherwise you can get an error 'Bad permissions'.
+Use the following command to change the permissions for the private key file (.pem), otherwise you can get an error 'Bad permissions'.
 
 ![step12](https://user-images.githubusercontent.com/91766546/155468937-57c37275-ca8e-41ef-a7d2-4d7976d24938.png)
 
@@ -137,7 +137,7 @@ Open your AWS Management Console and Click on your EC2 instance. Click on the 'S
 ![step21](https://user-images.githubusercontent.com/91766546/155471913-65b8e592-f91c-4085-8d09-f410b8694a2b.png)
 
 Step 5: 
-Click on the link under the 'Securty Groups'.
+Click on the link under the 'Security Groups'.
 
 ![step22](https://user-images.githubusercontent.com/91766546/155472624-d79fdc64-6ec9-467d-bf57-33ebc2687c23.png)
 
@@ -218,7 +218,7 @@ PHP is a script on the server-side used for the creation of Static or Dynamic We
 Let's begin our installation.
    
 Step 1:
-To start with, run these three commans at once on your terminal.
+To start with, run these three commands at once on your terminal.
 
 ![step36](https://user-images.githubusercontent.com/91766546/155537883-1fabfdb1-50d1-4ea6-9a5a-3d426acdb48f.png)
    
